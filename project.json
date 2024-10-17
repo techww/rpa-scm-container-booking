@@ -7,10 +7,11 @@
     "JqueryExecution.Activities": "[2.0.0]",
     "UiPath.Excel.Activities": "[2.22.3]",
     "UiPath.GSuite.Activities": "[2.5.7]",
-    "UiPath.System.Activities": "[23.10.5]",
+    "UiPath.System.Activities": "[24.10.3]",
     "UiPath.Testing.Activities": "[23.10.1]",
-    "UiPath.UIAutomation.Activities": "[23.10.9]",
-    "Westwing": "[1.0.100]"
+    "UiPath.UIAutomation.Activities": "[24.10.3]",
+    "Westwing": "[1.0.100]",
+    "WestwingScmLibrary": "[1.0.8]"
   },
   "webServices": [],
   "entitiesStores": [],

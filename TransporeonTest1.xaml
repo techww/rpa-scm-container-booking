@@ -235,7 +235,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <Delay Duration="00:00:07" sap:VirtualizedContainerService.HintSize="354,122" sap2010:WorkflowViewState.IdRef="Delay_2" />
-                  <ja:InjectJqueryScript ContinueOnError="{x:Null}" InputParameter="{x:Null}" DisplayName="Inject Jquery Script" sap:VirtualizedContainerService.HintSize="354,204" sap2010:WorkflowViewState.IdRef="InjectJqueryScript_1" JqueryLibFilePath="C:\Westie\jquery-2.2.4.min.js" JqueryScriptCode="function (element, input) {&#xD;&#xA;&#xD;&#xA;&#x9;$('document').ready(function() {&#xD;&#xA;&#x9;//&#x9;$('#iFrameRetailTSM').remove();&#xD;&#xA;&#x9;alert($('.slotHeader').length);&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;});&#xD;&#xA; &#xD;&#xA;}" ScriptOutput="[JqueryScriptOutput]" UiBrowser="[Browser]" />
+                  <ja:InjectJqueryScript ContinueOnError="{x:Null}" InputParameter="{x:Null}" DisplayName="Inject Jquery Script" sap:VirtualizedContainerService.HintSize="354,204" sap2010:WorkflowViewState.IdRef="InjectJqueryScript_1" JqueryLibFilePath="C:\Westie\jquery-2.2.4.min.js" JqueryScriptCode="function (element, input) {&#xA;&#xA;&#x9;$('document').ready(function() {&#xA;&#x9;//&#x9;$('#iFrameRetailTSM').remove();&#xA;&#x9;alert($('.slotHeader').length);&#xA;&#x9;&#xA;&#x9;});&#xA; &#xA;}" ScriptOutput="[JqueryScriptOutput]" UiBrowser="[Browser]" />
                 </Sequence>
               </If.Then>
               <If.Else>
