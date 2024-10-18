@@ -7,11 +7,12 @@
     <x:Property Name="in_Reference" Type="InArgument(x:String)" />
     <x:Property Name="io_ShouldMarkJobAsFaulted" Type="InOutArgument(x:Boolean)" />
     <x:Property Name="io_FaultedJobReason" Type="InOutArgument(x:String)" />
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1868,3450</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1198,3962</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SystemExceptionHandling_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -59,6 +60,8 @@
       <x:String>Westwing.Pegasus</x:String>
       <x:String>Westwing.Registry</x:String>
       <x:String>Westwing.SalesPlanner.API</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -118,9 +121,15 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>Westwing</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description:&#xA;Reusable conponent for exception handling.&#xA;&#xA;Input:&#xA;- in_Config&#xA;- in_BusinessException&#xA;- in_SystemException&#xA;- in_MailAddresses&#xA;- in_Reference&#xA;- in_ErrorFolderPath&#xA;- in_InprogressFolderPath&#xA;- in_ArchiveFolderPath&#xA;&#xA;Output:&#xA;- N/A&#xA;&#xA;Input/Output:&#xA;- io_ShouldMarkJobAsFaulted&#xA;- io_FaultedJobReason&#xA;&#xA;Throw:&#xA;- SE_061, SE_062&#xA;&#xA;Developer: Sylwester Buczek" DisplayName="ExceptionHandling" sap:VirtualizedContainerService.HintSize="776,3385" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description:&#xA;Reusable conponent for exception handling.&#xA;&#xA;Input:&#xA;- in_Config&#xA;- in_BusinessException&#xA;- in_SystemException&#xA;- in_MailAddresses&#xA;- in_Reference&#xA;- in_ErrorFolderPath&#xA;- in_InprogressFolderPath&#xA;- in_ArchiveFolderPath&#xA;&#xA;Output:&#xA;- N/A&#xA;&#xA;Input/Output:&#xA;- io_ShouldMarkJobAsFaulted&#xA;- io_FaultedJobReason&#xA;&#xA;Throw:&#xA;- SE_061, SE_062&#xA;&#xA;Developer: Sylwester Buczek" DisplayName="ExceptionHandling" sap:VirtualizedContainerService.HintSize="852,3897" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="PegasusLogsParameter" />
       <Variable x:TypeArguments="x:String" Name="ProcessCode" />
@@ -145,7 +154,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Info" sap:VirtualizedContainerService.HintSize="714,141" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Exception Handling sequence started...&quot;]">
+    <ui:LogMessage DisplayName="Log Message - Info" sap:VirtualizedContainerService.HintSize="790,173" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Exception Handling sequence started...&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -153,7 +162,77 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:MultipleAssign DisplayName="Get setting from Config file" sap:VirtualizedContainerService.HintSize="714,333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <If sap2010:Annotation.AnnotationText="RpaStatus from Process is empty" Condition="[in_TransactionItem.SpecificContent(&quot;RpaStatus&quot;) is Nothing]" sap:VirtualizedContainerService.HintSize="790,99" sap2010:WorkflowViewState.IdRef="If_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("RpaStatus")]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Object">[""]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If sap2010:Annotation.AnnotationText="RpaComment from Process is empty" Condition="[in_TransactionItem.SpecificContent(&quot;RpaComment&quot;) is Nothing]" sap:VirtualizedContainerService.HintSize="790,99" sap2010:WorkflowViewState.IdRef="If_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("RpaComment")]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Object">[""]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:MultipleAssign DisplayName="Get setting from Config file" sap:VirtualizedContainerService.HintSize="790,365" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -229,10 +308,10 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:IfElseIf DisplayName="Swich case business or system exception" sap:VirtualizedContainerService.HintSize="714,998" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+    <ui:IfElseIf DisplayName="Swich case business or system exception" sap:VirtualizedContainerService.HintSize="790,1030" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
       <ui:IfElseIf.ConditionBlocks>
         <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
-          <ui:IfElseIfBlock BlockType="If" Condition="[in_BusinessException isnot Nothing]">
+          <ui:IfElseIfBlock BlockType="If" Condition="[in_BusinessException isnot Nothing]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
             <ui:IfElseIfBlock.Then>
               <ui:MultipleAssign DisplayName="Settings for Business Exception" sap:VirtualizedContainerService.HintSize="479,271" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                 <ui:MultipleAssign.AssignOperations>
@@ -296,7 +375,7 @@
               </ui:MultipleAssign>
             </ui:IfElseIfBlock.Then>
           </ui:IfElseIfBlock>
-          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_SystemException isnot Nothing]">
+          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_SystemException isnot Nothing]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
             <ui:IfElseIfBlock.Then>
               <ui:MultipleAssign DisplayName="Settings for System Exception" sap:VirtualizedContainerService.HintSize="479,302" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                 <ui:MultipleAssign.AssignOperations>
@@ -368,7 +447,7 @@
               </ui:MultipleAssign>
             </ui:IfElseIfBlock.Then>
           </ui:IfElseIfBlock>
-          <ui:IfElseIfBlock BlockType="Else">
+          <ui:IfElseIfBlock BlockType="Else" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_3">
             <ui:IfElseIfBlock.Then>
               <Throw sap2010:Annotation.AnnotationText="Bussines and System exception object not set" DisplayName="Throw SE_061" Exception="[New SystemException(ProcessCode + &quot;.SE_061: Bussines and System exception object not set. Source: ExceptionHandling&quot;)]" sap:VirtualizedContainerService.HintSize="200,67" sap2010:WorkflowViewState.IdRef="Throw_1">
                 <sap:WorkflowViewStateService.ViewState>
@@ -390,15 +469,15 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:IfElseIf>
-    <If Condition="[ExceptionObjectSet]" DisplayName="If Exception Object is not nothing" sap:VirtualizedContainerService.HintSize="714,1310" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[ExceptionObjectSet]" DisplayName="If Exception Object is not nothing" sap:VirtualizedContainerService.HintSize="790,1671" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
-        <Sequence DisplayName="Exception Handling Sequence" sap:VirtualizedContainerService.HintSize="680,1072" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Exception Handling Sequence" sap:VirtualizedContainerService.HintSize="756,1432" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch sap2010:Annotation.AnnotationText="Take a screenshot of the current state of the screen to facilitate debugging." DisplayName="Try Catch - Take Screenshot" sap:VirtualizedContainerService.HintSize="638,82" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch sap2010:Annotation.AnnotationText="Take a screenshot of the current state of the screen to facilitate debugging." DisplayName="Try Catch - Take Screenshot" sap:VirtualizedContainerService.HintSize="694,114" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -444,19 +523,19 @@
               </Catch>
             </TryCatch.Catches>
           </TryCatch>
-          <ui:IfElseIf DisplayName="If exception is not at initialization" sap:VirtualizedContainerService.HintSize="638,579" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+          <ui:IfElseIf DisplayName="If exception is not at initialization" sap:VirtualizedContainerService.HintSize="694,972" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
             <ui:IfElseIf.ConditionBlocks>
               <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
-                <ui:IfElseIfBlock BlockType="If" Condition="[Not LCase(in_Reference) Like &quot;initialization&quot;]">
+                <ui:IfElseIfBlock BlockType="If" Condition="[Not LCase(in_Reference) Like &quot;initialization&quot;]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_4">
                   <ui:IfElseIfBlock.Then>
-                    <Sequence sap2010:Annotation.AnnotationText="Here is the place for necessary actions in current proces while an exception occurs. All activities should be in try catch activity.&#xA;YOU CAN'T THROW ANY EXCEPTIONS HERE!" DisplayName="Sequence - for current process" sap:VirtualizedContainerService.HintSize="496,383" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence sap2010:Annotation.AnnotationText="Here is the place for necessary actions in current proces while an exception occurs. All activities should be in try catch activity.&#xA;YOU CAN'T THROW ANY EXCEPTIONS HERE!" DisplayName="Sequence - for current process" sap:VirtualizedContainerService.HintSize="500,744" sap2010:WorkflowViewState.IdRef="Sequence_4">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <TryCatch sap2010:Annotation.AnnotationText="Sending Logs to Pegasus only for transaction not initialization" DisplayName="Try Catch - Send Pegasus Logs" sap:VirtualizedContainerService.HintSize="434,215" sap2010:WorkflowViewState.IdRef="TryCatch_7">
+                      <TryCatch sap2010:Annotation.AnnotationText="Send Logs to GDOC" DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,361" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -465,17 +544,36 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <TryCatch.Try>
-                          <wp:PegasusLogsAPI DisplayName="Send Logs to Pegasus" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="PegasusLogsAPI_1" in_Action="[PegasusLogsParameter]" in_Comment="[ExceptionMessage]" in_IsError="[True]" in_IsPegasusReference="[IsItemInPegasus]" in_ProcessCode="[ProcessCode]" in_SKU="[in_Reference]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </wp:PegasusLogsAPI>
+                          <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" AuthenticationType="None" BodyFormat="application/xml" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://script.google.com/macros/s/AKfycbxuhtB29BcUVYqtMmlU86gac_bOUzl5nxrCiCYg5aDURUS-ueZv-31RAbWvhBdEuJVehw/exec" sap:VirtualizedContainerService.HintSize="204,70" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" TimeoutMS="6000">
+                            <ui:HttpClient.Attachments>
+                              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                            </ui:HttpClient.Attachments>
+                            <ui:HttpClient.Cookies>
+                              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                            </ui:HttpClient.Cookies>
+                            <ui:HttpClient.Headers>
+                              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                            </ui:HttpClient.Headers>
+                            <ui:HttpClient.Parameters>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column2">[in_TransactionItem.SpecificContent("Container").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column3">[in_TransactionItem.SpecificContent("BookingYear").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column4">[in_TransactionItem.SpecificContent("BookingWeek").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column5">[in_TransactionItem.SpecificContent("DeliveryDate").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column6">[in_TransactionItem.SpecificContent("DeliveryTime").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column7">Error</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column9">[If(in_SystemException IsNot Nothing, in_SystemException.Message, ExceptionMessage.ToString)]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column10">[in_TransactionItem.SpecificContent("PurchaseOrdersList").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column11">[TimeZoneInfo.ConvertTimeBySystemTimeZoneId(Now, "Central European Standard Time").ToString("yyyy-MM-dd HH:mm:ss")]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column1">[in_TransactionItem.SpecificContent("Warehouse").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="Column8">[If(in_SystemException IsNot Nothing, "System", "Business")]</InArgument>
+                            </ui:HttpClient.Parameters>
+                            <ui:HttpClient.UrlSegments>
+                              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                            </ui:HttpClient.UrlSegments>
+                          </ui:HttpClient>
                         </TryCatch.Try>
                         <TryCatch.Catches>
-                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_8">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -486,13 +584,13 @@
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                               </ActivityAction.Argument>
-                              <Sequence sap:VirtualizedContainerService.HintSize="485,338" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                              <Sequence sap:VirtualizedContainerService.HintSize="541,431" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:LogMessage DisplayName="Log Message - Fatal - Pegasus Logs" sap:VirtualizedContainerService.HintSize="479,141" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Fatal" Message="[&quot;Can't send logs to Pegasus at Exception Handling Sequence.&quot; + vbNewLine + &quot;Exception Message: &quot; + exception.Message]">
+                                <ui:LogMessage DisplayName="Log Message - Fatal - Pegasus Logs" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Fatal" Message="[&quot;Can't send logs to GDOC at Success Transaction Handling Sequence. Exception Message: &quot; + exception.Message]">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -500,7 +598,87 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:LogMessage>
-                                <ui:MultipleAssign DisplayName="Multiple Assign - Set Job As Faulted" sap:VirtualizedContainerService.HintSize="479,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                                <ui:MultipleAssign DisplayName="Multiple Assign - Set Job As Faulted" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                                  <ui:MultipleAssign.AssignOperations>
+                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:Boolean">[io_ShouldMarkJobAsFaulted]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[io_FaultedJobReason]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[If(io_FaultedJobReason="","-Send Pegasus Logs (STH) Error: " + in_Reference + " - " + exception.Message,io_FaultedJobReason + vbNewLine + "-Send Pegasus Logs (STH) Error: " + in_Reference + " - " + exception.Message)]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                    </scg:List>
+                                  </ui:MultipleAssign.AssignOperations>
+                                </ui:MultipleAssign>
+                              </Sequence>
+                            </ActivityAction>
+                          </Catch>
+                        </TryCatch.Catches>
+                        <TryCatch.Finally>
+                          <Sequence sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </TryCatch.Finally>
+                      </TryCatch>
+                      <TryCatch sap2010:Annotation.AnnotationText="Sending Logs to Pegasus only for transaction not initialization" DisplayName="Try Catch - Send Pegasus Logs" sap:VirtualizedContainerService.HintSize="438,238" sap2010:WorkflowViewState.IdRef="TryCatch_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <TryCatch.Try>
+                          <wp:PegasusLogsAPI DisplayName="Send Logs to Pegasus" sap:VirtualizedContainerService.HintSize="334,294" sap2010:WorkflowViewState.IdRef="PegasusLogsAPI_1" in_Action="[PegasusLogsParameter]" in_Comment="[ExceptionMessage]" in_IsError="[True]" in_IsPegasusReference="[IsItemInPegasus]" in_ProcessCode="[ProcessCode]" in_SKU="[in_Reference]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </wp:PegasusLogsAPI>
+                        </TryCatch.Try>
+                        <TryCatch.Catches>
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,22" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ActivityAction x:TypeArguments="s:Exception">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                              </ActivityAction.Argument>
+                              <Sequence sap:VirtualizedContainerService.HintSize="541,345" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message - Fatal - Pegasus Logs" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Fatal" Message="[&quot;Can't send logs to Pegasus at Exception Handling Sequence.&quot; + vbNewLine + &quot;Exception Message: &quot; + exception.Message]">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:LogMessage>
+                                <ui:MultipleAssign DisplayName="Multiple Assign - Set Job As Faulted" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
                                   <ui:MultipleAssign.AssignOperations>
                                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
@@ -533,7 +711,7 @@
               </sc:BindingList>
             </ui:IfElseIf.ConditionBlocks>
           </ui:IfElseIf>
-          <Sequence sap2010:Annotation.AnnotationText="Steps required for all prcesses. Create HTML file, send mail and send pegasus logs." DisplayName="Fixed components" sap:VirtualizedContainerService.HintSize="638,243" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence sap2010:Annotation.AnnotationText="Steps required for all prcesses. Create HTML file, send mail and send pegasus logs." DisplayName="Fixed components" sap:VirtualizedContainerService.HintSize="694,258" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -541,7 +719,7 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch - Create HTML file" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+            <TryCatch DisplayName="Try Catch - Create HTML file" sap:VirtualizedContainerService.HintSize="388,57" sap2010:WorkflowViewState.IdRef="TryCatch_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -559,7 +737,7 @@
                 </ui:AppendLine>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -582,7 +760,7 @@
                 </Catch>
               </TryCatch.Catches>
             </TryCatch>
-            <TryCatch DisplayName="Try Catch - Send Mail" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+            <TryCatch DisplayName="Try Catch - Send Mail" sap:VirtualizedContainerService.HintSize="388,48" sap2010:WorkflowViewState.IdRef="TryCatch_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>

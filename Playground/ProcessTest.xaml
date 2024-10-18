@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ProcessTest" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="2030,2862" sap2010:WorkflowViewState.IdRef="ProcessTest_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:wt="clr-namespace:WestwingScmLibrary.Transporeon;assembly=WestwingScmLibrary" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ProcessTest" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1198,956" sap2010:WorkflowViewState.IdRef="ProcessTest_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:wt="clr-namespace:WestwingScmLibrary.Transporeon;assembly=WestwingScmLibrary" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -104,7 +104,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTest" sap:VirtualizedContainerService.HintSize="541,2797" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTest" sap:VirtualizedContainerService.HintSize="512,851" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ContainerNo" />
       <Variable x:TypeArguments="x:String" Name="Warehouse" />
@@ -128,18 +128,129 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,489" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="541,537" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,449" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[ContainerNo]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">BMOU4315564</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[Warehouse]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">ELC5</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[ScheduleDate]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">2024-10-21</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[DeliveryTime]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">09:00</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[DurationMinutes]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">120</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[MixedContainer]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Yes</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[RugsContainer]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">0</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[PurchaseOrdersList]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">29022784S51D01;29022406S53D01</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[PacklistDirRootPath]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">C:\Westie\Transporeon\07_Transporeon booking\02_Packlists</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[BookingWeek]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">43</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[BookingYear]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">2024</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[ContainerNo]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">PG---06</InArgument>
+              <InArgument x:TypeArguments="x:String">BMOU4315564</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[Warehouse]</OutArgument>
             </ui:AssignOperation.To>
@@ -147,31 +258,31 @@
               <InArgument x:TypeArguments="x:String">ELC7</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[ScheduleDate]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">2024-11-19</InArgument>
+              <InArgument x:TypeArguments="x:String">2024-10-22</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[MixedContainer]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">No</InArgument>
+              <InArgument x:TypeArguments="x:String">Yes</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[DurationMinutes]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">60</InArgument>
+              <InArgument x:TypeArguments="x:String">360</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[RugsContainer]</OutArgument>
             </ui:AssignOperation.To>
@@ -179,23 +290,23 @@
               <InArgument x:TypeArguments="x:String">0</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[PurchaseOrdersList]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">K1;K2;K3</InArgument>
+              <InArgument x:TypeArguments="x:String">29019709S52D01;29021934S54D01;29021713S53D01</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[DeliveryTime]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">11:00</InArgument>
+              <InArgument x:TypeArguments="x:String">07:00</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[PacklistDirRootPath]</OutArgument>
             </ui:AssignOperation.To>
@@ -203,23 +314,15 @@
               <InArgument x:TypeArguments="x:String">C:\Westie\Transporeon\07_Transporeon booking\02_Packlists</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[SlotCaption]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">X000013701</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[BookingWeek]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">44</InArgument>
+              <InArgument x:TypeArguments="x:String">43</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[BookingYear]</OutArgument>
             </ui:AssignOperation.To>
@@ -229,8 +332,14 @@
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process Chrome" sap:VirtualizedContainerService.HintSize="479,84" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="chrome">
+    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process Chrome" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="chrome">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -238,7 +347,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:KillProcess>
-    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="479,84" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[in_Browser]" Url="https://login.transporeon.com/login/?return=https://retailtsm.transporeon.com/unloadingscheduler?view=545a02">
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[in_Browser]" Url="https://login.transporeon.com/login/?return=https://retailtsm.transporeon.com/unloadingscheduler?view=545a02">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -261,7 +370,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OpenBrowser>
-    <Sequence sap2010:Annotation.AnnotationText="Select Warehouse, Dates and Load Schedule" DisplayName="Schedule header navigation" sap:VirtualizedContainerService.HintSize="479,144" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence sap2010:Annotation.AnnotationText="Select Warehouse, Dates and Load Schedule" DisplayName="Schedule header navigation" sap:VirtualizedContainerService.HintSize="450,88" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -273,38 +382,62 @@
       <wt:ScheduleSelectDatesRange sap:VirtualizedContainerService.HintSize="388,173" sap2010:WorkflowViewState.IdRef="ScheduleSelectDatesRange_1" in_DateFrom="[ScheduleDate.ToString]" in_DateTo="[ScheduleDate.ToString]" />
       <wt:ScheduleClickLoad sap:VirtualizedContainerService.HintSize="388,48" sap2010:WorkflowViewState.IdRef="ScheduleClickLoad_2" />
     </Sequence>
-    <wt:ScheduleAnalyzeCalendarAndCreateBooking sap:VirtualizedContainerService.HintSize="479,326" sap2010:WorkflowViewState.IdRef="ScheduleAnalyzeCalendarAndCreateBooking_1" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]" in_DeliveryTime="[DeliveryTime]" in_DurationMinutes="[DurationMinutes]" out_ScriptOutput="[WestwingReservationsResponse]" />
-    <wt:BookingFormForReserved sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="BookingFormForReserved_1" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]">
+    <wt:ScheduleAnalyzeCalendarAndCreateBooking sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="ScheduleAnalyzeCalendarAndCreateBooking_1" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]" in_DeliveryTime="[DeliveryTime]" in_DurationMinutes="[DurationMinutes]" out_ScriptOutput="[WestwingReservationsResponse]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </wt:ScheduleAnalyzeCalendarAndCreateBooking>
+    <wt:BookingFormForReserved sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="BookingFormForReserved_1" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </wt:BookingFormForReserved>
-    <wt:BookingFormAddPurchaseOrders sap:VirtualizedContainerService.HintSize="479,224" sap2010:WorkflowViewState.IdRef="BookingFormAddPurchaseOrders_1" in_Browser="[in_Browser]" in_PurchaseOrdersList="[PurchaseOrdersList]" out_PurchaseOrdersNotActivatedList="[WarningPurchaseOrdersNotActivatedList]" />
-    <wt:BookingFormEditForm sap:VirtualizedContainerService.HintSize="479,326" sap2010:WorkflowViewState.IdRef="BookingFormEditForm_1" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]" in_DurationMinutes="[DurationMinutes]" in_MixedContainer="[MixedContainer]" in_RugsContainer="[RugsContainer]">
+    <wt:BookingFormAddPurchaseOrders sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="BookingFormAddPurchaseOrders_1" in_Browser="[in_Browser]" in_PurchaseOrdersList="[PurchaseOrdersList]" out_PurchaseOrdersNotActivatedList="[WarningPurchaseOrdersNotActivatedList]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </wt:BookingFormAddPurchaseOrders>
+    <wt:BookingFormEditForm sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="BookingFormEditForm_1" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]" in_DurationMinutes="[DurationMinutes]" in_MixedContainer="[MixedContainer]" in_RugsContainer="[RugsContainer]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </wt:BookingFormEditForm>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Adding Attachments&quot;]" />
-    <wt:BookingFormAddPdfAttachments sap:VirtualizedContainerService.HintSize="479,275" sap2010:WorkflowViewState.IdRef="BookingFormAddPdfAttachments_1" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]" in_PacklistDir="[PacklistDirRootPath + &quot;\CW_&quot; + BookingWeek.ToString + &quot;_&quot; + BookingYear.ToString]" out_PdfFileExistsInfo="[WarningPdfFileExistsInfo]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;WarningPdfFileExistsInfo: &quot; + WarningPdfFileExistsInfo]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="479,238" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_4">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <wt:BookingFormClickSave sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="BookingFormClickSave_1" />
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Adding Attachments&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <wt:BookingFormAddPdfAttachments sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="BookingFormAddPdfAttachments_1" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]" in_PacklistDir="[PacklistDirRootPath + &quot;\CW_&quot; + BookingWeek.ToString + &quot;_&quot; + BookingYear.ToString]" out_PdfFileExistsInfo="[WarningPdfFileExistsInfo]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </wt:BookingFormAddPdfAttachments>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;WarningPdfFileExistsInfo: &quot; + WarningPdfFileExistsInfo]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <wt:BookingFormClickSave sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="BookingFormClickSave_1" />
   </Sequence>
 </Activity>
