@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ExcelFilterTest1" this:ExcelFilterTest1.in_Warehouse="ELC7" this:ExcelFilterTest1.in_PacklistsPdfDir="C:\Westie\Transporeon\" this:ExcelFilterTest1.in_BookingsExcelDir="C:\Westie\Transporeon\07_Transporeon booking\01_Overview Containerbooking" this:ExcelFilterTest1.in_AddWeeksToCurrent="1" this:ExcelFilterTest1.in_QueueName="Q13_ALL_SCM_ContainerBooking" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:wo="clr-namespace:Westwing.Orchestrator;assembly=Westwing" xmlns:wsa="clr-namespace:Westwing.SalesPlanner.API;assembly=Westwing" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ExcelFilterTest1" this:ExcelFilterTest1.in_Warehouse="ELC5" this:ExcelFilterTest1.in_PacklistsPdfDir="C:\Westie\Transporeon\" this:ExcelFilterTest1.in_BookingsExcelDir="C:\Westie\Transporeon\07_Transporeon booking\01_Overview Containerbooking" this:ExcelFilterTest1.in_AddWeeksToCurrent="1" this:ExcelFilterTest1.in_QueueName="Q13_ALL_SCM_ContainerBooking" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:wo="clr-namespace:Westwing.Orchestrator;assembly=Westwing" xmlns:wsa="clr-namespace:Westwing.SalesPlanner.API;assembly=Westwing" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Warehouse" Type="InArgument(x:String)" />
     <x:Property Name="in_PacklistsPdfDir" Type="InArgument(x:String)" />
@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2030,5899</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1198,5930</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExcelFilterTest1_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -140,9 +140,10 @@
       <AssemblyReference>System.Collections.Specialized</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>System.Reflection.MetadataLoadContext</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Q13_ALL_ContainerBooking  -  DispatcherBackground" sap:VirtualizedContainerService.HintSize="800,5834" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Q13_ALL_ContainerBooking  -  DispatcherBackground" sap:VirtualizedContainerService.HintSize="800,5825" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="CurrentWeek" />
       <Variable x:TypeArguments="s:DateTime" Name="CurrentDate" />
@@ -364,13 +365,13 @@
       </If.Else>
     </If>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="738,173" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Excel file exists, continue!&quot;]" />
-    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="Add Container Bookings items to queue" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="738,4197" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="[in_BookingsExcelDir + &quot;\&quot; + ExcelFilename]">
+    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="Add Container Bookings items to queue" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="738,4242" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="[in_BookingsExcelDir + &quot;\&quot; + ExcelFilename]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="704,4024" sap2010:WorkflowViewState.IdRef="Sequence_23">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="704,4069" sap2010:WorkflowViewState.IdRef="Sequence_23">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="ContainerShipmentsData" />
             </Sequence.Variables>
@@ -441,13 +442,13 @@
             </If>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="642,173" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Adding items to queue&quot;]" />
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="642,173" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[ContainerDataFilteredText.ToString]" />
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ContainerDataFiltered]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="642,2461" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ContainerDataFiltered]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="642,2533" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="608,2265" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="608,2337" sap2010:WorkflowViewState.IdRef="Sequence_32">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -463,14 +464,14 @@
                     </Assign>
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="546,173" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reference: &quot; + Reference.ToString]" />
                     <wo:ItemExistsInQueue sap:VirtualizedContainerService.HintSize="546,173" sap2010:WorkflowViewState.IdRef="ItemExistsInQueue_1" in_ItemReference="[Reference]" in_QueueName="[in_QueueName]" out_ItemExistsInQueue="[ExistsInQueue]" />
-                    <If sap2010:Annotation.AnnotationText="And CurrentRow(&quot;so_campaign_id&quot;).ToString &lt;&gt; &quot;&quot;" Condition="[Not ExistsInQueue]" sap:VirtualizedContainerService.HintSize="546,1717" sap2010:WorkflowViewState.IdRef="If_6">
+                    <If sap2010:Annotation.AnnotationText="And CurrentRow(&quot;so_campaign_id&quot;).ToString &lt;&gt; &quot;&quot;" Condition="[Not ExistsInQueue]" sap:VirtualizedContainerService.HintSize="546,1789" sap2010:WorkflowViewState.IdRef="If_6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,1422" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,1494" sap2010:WorkflowViewState.IdRef="Sequence_29">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -562,7 +563,12 @@
                               </Sequence>
                             </If.Else>
                           </If>
-                          <If Condition="[CurrentRow(&quot;container&quot;).ToString = &quot;BMOU4315564&quot;]" sap:VirtualizedContainerService.HintSize="450,751" sap2010:WorkflowViewState.IdRef="If_8">
+                          <If sap2010:Annotation.AnnotationText="FDCU0334348&#xD;&#xA;CurrentRow(&quot;container&quot;).ToString &lt;&gt; &quot;CAAU5043046&quot; AND CType(CurrentRow(&quot;delivery date&quot;), DateTime).ToString(&quot;yyyy-MM-dd&quot;) = &quot;2024-10-21&quot;" Condition="[CurrentRow(&quot;container&quot;).ToString &lt;&gt; &quot;BMOU4315564&quot; And CurrentRow(&quot;container&quot;).ToString &lt;&gt; &quot;CAAU5043046&quot; And  CurrentRow(&quot;container&quot;).ToString &lt;&gt; &quot;HMMU6678850&quot; And  CurrentRow(&quot;container&quot;).ToString &lt;&gt; &quot;FTAU1272678&quot;  And CType(CurrentRow(&quot;delivery date&quot;), DateTime).ToString(&quot;yyyy-MM-dd&quot;) = &quot;2024-10-21&quot;]" sap:VirtualizedContainerService.HintSize="450,823" sap2010:WorkflowViewState.IdRef="If_8">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
                               <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,478" sap2010:WorkflowViewState.IdRef="Sequence_37">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -577,13 +583,19 @@
                                     <InArgument x:TypeArguments="x:String" x:Key="BookingYear">[BookingYear.ToString]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="Warehouse">[in_Warehouse]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="Container">[CurrentRow("container").ToString]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="DeliveryDate">[DateTime.ParseExact(CurrentRow("delivery date").ToString, "MM/dd/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="DeliveryTime">[TimeSpan.FromDays(Convert.ToDouble(CurrentRow("delivery time"))).Subtract(TimeSpan.FromHours(0)).ToString("hh\:mm")]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="DeliveryDate">[CType(CurrentRow("delivery date"), DateTime).ToString("yyyy-MM-dd")]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="DeliveryTime">[TimeSpan.FromHours(TimeSpan.FromDays(Math.Round(Convert.ToDouble(CurrentRow("delivery time")), 5)).Hours).Add(TimeSpan.FromMinutes(Math.Round(TimeSpan.FromDays(Math.Round(Convert.ToDouble(CurrentRow("delivery time")), 5)).Minutes / 60.0) * 60)).ToString("hh\:mm")]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="HoursNeeded">[CurrentRow("time needed (hours)").ToString]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="ContainerType">[CurrentRow("container type").ToString]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="MixedContainer">[MixedContainer]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="RugsContainer">[CurrentRow("rugs container").ToString]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="PurchaseOrdersList">[UniquePurchaseOrdersList]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="RpaComment">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="RpaStatus">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
                                   </ui:AddQueueItem.ItemInformation>
                                   <ui:AddQueueItem.TimeoutMS>
                                     <InArgument x:TypeArguments="x:Int32" />
@@ -652,7 +664,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:CommentOut>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="626,75" sap2010:WorkflowViewState.IdRef="CommentOut_12">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="642,48" sap2010:WorkflowViewState.IdRef="CommentOut_12">
               <ui:CommentOut.Body>
                 <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,478" sap2010:WorkflowViewState.IdRef="Sequence_24">
                   <sap:WorkflowViewStateService.ViewState>
@@ -688,7 +700,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="722,84" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="738,57" sap2010:WorkflowViewState.IdRef="CommentOut_9">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="592,1442" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
@@ -774,7 +786,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="722,75" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="738,48" sap2010:WorkflowViewState.IdRef="CommentOut_8">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="610,1731" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <sap:WorkflowViewStateService.ViewState>
