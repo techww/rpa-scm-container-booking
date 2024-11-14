@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1198,4147</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1198,4650</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -131,7 +131,7 @@
       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="592,3988" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="592,4585" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ContainerNo" />
       <Variable x:TypeArguments="x:String" Name="Warehouse" />
@@ -252,7 +252,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="530,84" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="530,57" sap2010:WorkflowViewState.IdRef="CommentOut_9">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="529,372" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
@@ -292,7 +292,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <Sequence sap2010:Annotation.AnnotationText="Select Warehouse, Dates and Load Schedule" DisplayName="Schedule header navigation" sap:VirtualizedContainerService.HintSize="530,144" sap2010:WorkflowViewState.IdRef="Sequence_13">
+    <Sequence sap2010:Annotation.AnnotationText="Select Warehouse, Dates and Load Schedule" DisplayName="Schedule header navigation" sap:VirtualizedContainerService.HintSize="530,88" sap2010:WorkflowViewState.IdRef="Sequence_13">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -329,14 +329,6 @@
       </sap:WorkflowViewStateService.ViewState>
     </wt:BookingFormAddPurchaseOrders>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;WarningPurchaseOrdersNotActivatedList: &quot; + WarningPurchaseOrdersNotActivatedList]" />
-    <wt:BookingFormEditForm sap:VirtualizedContainerService.HintSize="530,57" sap2010:WorkflowViewState.IdRef="BookingFormEditForm_1" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]" in_DurationMinutes="[DurationMinutes]" in_MixedContainer="[MixedContainer]" in_RugsContainer="[RugsContainer]">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </wt:BookingFormEditForm>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,57" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Adding Attachments&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -345,6 +337,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
+    <wt:BookingFormEditForm sap:VirtualizedContainerService.HintSize="530,326" sap2010:WorkflowViewState.IdRef="BookingFormEditForm_2" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]" in_DurationMinutes="[DurationMinutes]" in_MixedContainer="[MixedContainer]" in_RugsContainer="[RugsContainer]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </wt:BookingFormEditForm>
     <wt:BookingFormAddPdfAttachments sap:VirtualizedContainerService.HintSize="530,275" sap2010:WorkflowViewState.IdRef="BookingFormAddPdfAttachments_1" in_Browser="[in_Browser]" in_ContainerNo="[ContainerNo]" in_PacklistDir="[PacklistDirRootPath + &quot;\CW_&quot; + BookingWeek.ToString + &quot;_&quot; + BookingYear.ToString]" out_PdfFileExistsInfo="[WarningPdfFileExistsInfo]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -353,7 +353,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </wt:BookingFormAddPdfAttachments>
-    <wt:BookingFormClickSave sap:VirtualizedContainerService.HintSize="530,57" sap2010:WorkflowViewState.IdRef="BookingFormClickSave_1" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Clicking Save&quot;]" />
+    <wt:BookingFormClickSave sap:VirtualizedContainerService.HintSize="530,122" sap2010:WorkflowViewState.IdRef="BookingFormClickSave_1" in_Browser="[in_Browser]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Clicked Save&quot;]" />
     <Assign sap:VirtualizedContainerService.HintSize="530,114" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("RpaComment")]</OutArgument>
